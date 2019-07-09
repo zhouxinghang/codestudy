@@ -39,4 +39,31 @@ public class _121_BestTimeToBuyAndSellStock {
         }
         return maxProfit;
     }
+
+    /**
+     * 通过动态代理开发
+     * @param prices
+     * @return
+     */
+    public int maxProfit3(int[] prices) {
+        if (prices.length == 0) {
+            return 0;
+        }
+        int[][] dp = new int[prices.length][2];
+        for (int i = 0; i < prices.length; i++) {
+            if (i - 1 == -1) {
+                dp[i][0] = 0;
+                dp[i][1] = -prices[i];
+                continue;
+            }
+            dp[i][0] = Math.max(dp[i-1][1] + prices[i], dp[i-1][0]);
+            // dp[i][1] = Math.max(dp[i-1][0] - prices[i], dp[i-1][1]);
+            dp[i][1] = Math.max(0 - prices[i], dp[i-1][1]);
+        }
+        return dp[prices.length - 1][0];
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new _121_BestTimeToBuyAndSellStock().maxProfit3(new int[]{7, 1, 5, 3, 6, 4}));
+    }
 }
