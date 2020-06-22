@@ -10,7 +10,7 @@ package leetcode.array;
  *
  * The median is (2 + 3)/2 = 2.5
  */
-public class _4_MedianofTwoSortedArrays {
+public class _4_寻找两个正序数组的中位数 {
 
     /**
      * 两个索引分别chcek 数组1 和 数组2，直到 checkLength = (m + n)/2 时间复杂度不行，且逻辑复杂
@@ -88,8 +88,8 @@ public class _4_MedianofTwoSortedArrays {
     public static void main(String[] args) {
         int[] nums1 = new int[]{1,2};
         int[] nums2 = new int[]{3,4};
-        System.out.println(new _4_MedianofTwoSortedArrays().findMedianSortedArrays2(nums1, nums2));
-        System.out.println(new _4_MedianofTwoSortedArrays().findKth(nums1, 0, nums2, 0, 3));
+        System.out.println(new _4_寻找两个正序数组的中位数().findMedianSortedArrays2(nums1, nums2));
+        System.out.println(new _4_寻找两个正序数组的中位数().findKth(nums1, 0, nums2, 0, 3));
     }
 
 

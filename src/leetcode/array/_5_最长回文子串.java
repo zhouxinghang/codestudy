@@ -8,7 +8,7 @@ package leetcode.array;
  * Output: "bab"
  * Note: "aba" is also a valid answer.
  */
-public class _5_LongestPalindromicSubstring {
+public class _5_最长回文子串 {
 
     /**
      * 采用动态规划方式
@@ -88,6 +88,6 @@ public class _5_LongestPalindromicSubstring {
     }
 
     public static void main(String[] args) {
-        System.out.println(new _5_LongestPalindromicSubstring().longestPalindrome2("cbbd"));
+        System.out.println(new _5_最长回文子串().longestPalindrome2("cbbd"));
     }
 }

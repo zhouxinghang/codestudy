@@ -15,7 +15,7 @@ import java.util.Set;
  * Explanation: The answer is "wke", with the length of 3.
  *              Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
  */
-public class _3_longestSubstringWithoutRepeatingCharacters {
+public class _3_无重复最长子串 {
 
     /**
      * 采用滑动窗口解决
@@ -33,7 +33,7 @@ public class _3_longestSubstringWithoutRepeatingCharacters {
         Set<Character> set = new HashSet<>();
         char[] chars = s.toCharArray();
         for (int i = 0; i < s.length(); i++) {
-            // 去除前面添加的字符，知道不重复为止
+            // 去除前面添加的字符，直到不重复为止
             while(set.contains(chars[i])) {
                 set.remove(chars[left]);
                 left++;
@@ -72,6 +72,6 @@ public class _3_longestSubstringWithoutRepeatingCharacters {
     }
 
     public static void main(String[] args) {
-        System.out.println(new _3_longestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstring2("pwwkew"));
+        System.out.println(new _3_无重复最长子串().lengthOfLongestSubstring2("pwwkew"));
     }
 }

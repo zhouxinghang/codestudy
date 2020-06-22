@@ -12,7 +12,7 @@ package leetcode.array;
  * Explanation: 342 + 465 = 807.
  *
  */
-public class _2_AddTwoNumbers {
+public class _2_两数之和 {
 
     /**
      * 将链表转为数字，然后相加，最后将结果转换为链表，这样如果链表过长的话，就会出问题
@@ -30,7 +30,7 @@ public class _2_AddTwoNumbers {
     }
 
     /**
-     * 直接迭代计算，考虑两数和超过 10 的 "进一" 处理
+     * 直接迭代计算，考虑两数和超过 10 的 "进1" 处理
      * @param l1
      * @param l2
      * @return
@@ -108,7 +108,7 @@ public class _2_AddTwoNumbers {
         ListNode line2 = new ListNode(5);
         line2.next = new ListNode(6);
         line2.next.next = new ListNode(4);
-        _2_AddTwoNumbers addTwoNumbers = new _2_AddTwoNumbers();
+        _2_两数之和 addTwoNumbers = new _2_两数之和();
         System.out.println(addTwoNumbers.convertNumber(line));
         System.out.println(addTwoNumbers.convertNumber(line2));
         System.out.println(addTwoNumbers.convertNumber(line) + addTwoNumbers.convertNumber(line2));
