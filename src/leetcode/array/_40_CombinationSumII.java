@@ -1,8 +1,11 @@
 package leetcode.array;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.List;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -42,6 +45,38 @@ public class _40_CombinationSumII {
     }
 
     public static void main(String[] args) {
-        System.out.println(new _40_CombinationSumII().combinationSum2(new int[]{2,3,5}, 8));
+        System.out.println(new _40_CombinationSumII().combinationSum3(new int[]{10,1,2,7,6,1,5}, 8));
     }
+
+    /**
+     * 使用回溯模板解决
+     * 数字有重复会产生重复结果，需要去重
+     */
+    public List<List<Integer>> combinationSum3(int[] candidates, int target) {
+        List<List<Integer>> res = new ArrayList<>();
+        Deque<Integer> path = new ArrayDeque<>();
+        Arrays.sort(candidates);
+        backtrack(res, path, candidates, target, 0);
+        return res;
+    }
+
+    public void backtrack(List<List<Integer>> res, Deque<Integer> path, int[] candidates, int residue, int start) {
+        if (residue == 0) {
+            // 深拷贝
+            res.add(new ArrayList<>(path));
+        }
+        for (int i = start; i < candidates.length; i++) {
+            // 剪枝
+            if (residue < candidates[i]) {
+                continue;
+            }
+            if (i > start && candidates[i] == candidates[i-1]) {
+                continue;
+            }
+            path.add(candidates[i]);
+            backtrack(res, path, candidates, residue - candidates[i], i+1);
+            path.removeLast();
+        }
+    }
+
 }
